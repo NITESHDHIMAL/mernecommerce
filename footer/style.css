@@ -1,0 +1,283 @@
+
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+ 
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  flex-wrap: wrap;
+  text-align: center;
+  
+}
+
+.footer-box {
+  max-width: 220px;
+  margin: 20px;
+  cursor: pointer;
+  
+}
+
+.footer-box i {
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.footer-box h3 {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+
+.footer-box p {
+  color: gray;
+  font-size: 14px;
+}
+
+
+
+.news-section {
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: auto;
+   border-top: 1px solid #ddd;
+}
+
+.news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.news-header h2 {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.view-all-btn {
+  padding: 12px 24px;
+  border: 2px solid #000;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.view-all-btn:hover {
+  background-color: green;
+  color: white;
+  border: none;
+}
+
+.news-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.news-card {
+  width: 300px;
+}
+
+.news-card img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 200px;
+}
+.news-card img:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+
+.news-meta {
+  font-size: 12px;
+  color: #555;
+  margin: 8px 0;
+}
+
+.tag {
+  color: green;
+  font-weight: bold;
+}
+
+.news-title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Newsletter */
+.newsletter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  flex-wrap: wrap;
+  border-top: 1px solid #ddd;
+}
+
+.newsletter-left h2 {
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.newsletter-left p {
+  max-width: 400px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.newsletter-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-right input {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  background-color: #f0f0f0;
+  width: 200px;
+}
+.newsletter-right input:hover{
+  border: 2px solid green;
+}
+
+
+.newsletter-right button {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.newsletter-right button:hover{
+  background-color: green;
+}
+.social-icons a {
+  margin-left: 10px;
+  font-size: 18px;
+  color: white;
+  background-color: #007aff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* Main Footer */
+.main-footer {
+  background-color: #fff;
+  padding: 40px;
+  border-top: 1px solid #eee;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-about {
+  height: 300px;
+  flex: 2;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-about h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.footer-about p {
+  margin: 6px 0;
+}
+
+.footer-about .phone {
+  color: #f4af52;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-links {
+  flex: 1;
+  margin-bottom: 5px;
+}
+
+.footer-links h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin: 6px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Bottom copyright */
+.footer-bottom {
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+}
+
+.brand-green {
+  color: green;
+  font-weight: 500;
+}
+.payment-logos {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.payment-logos img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.payment-logos img:hover {
+  transform: scale(1.1);
+}
