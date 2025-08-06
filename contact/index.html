@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.546649488599!2d-0.12209412348114375!3d51.50318637181229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2snp!4v1754141691820!5m2!1sen!2snp"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div class="contact">
+        <div class="contact-form">
+          <h1>Send a Request</h1>
+          <p>
+            Complete the form below, select a subject, type your question or
+            comment and we will get back to you as soon as possible.
+          </p>
+          <form>
+            <label for="subject">Subject</label>
+            <textarea name="subject" id="subject"></textarea>
+
+            <div class="user-info">
+              <div class="input-box">
+                <label for="name">Your name</label>
+                <input type="text" name="name" id="name" />
+              </div>
+
+              <div class="input-box">
+                <label for="email">Your Email</label>
+                <input type="email" name="email" id="email" />
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Send request <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </form>
+        </div>
+        <div class="store-location">
+          <h1>Store location</h1>
+
+          <div class="location-info">
+            <div class="store">
+              <img
+                src="https://demo2.themelexus.com/bokifa/wp-content/uploads/2024/09/contact-image1.jpg"
+                alt="image1"
+              />
+              <h2>Miami Showroom</h2>
+              <p>
+                <span class="light-txt"
+                  >2972 Westheimer Rd. Santa Ana, Illinois, USA</span
+                ><br />
+                <span>1-800-123-4567</span>
+              </p>
+              <p>
+                <span class="light-txt">Mon – Sat:</span> 7.00 am – 8.00 pm
+                <br /><span class="light-txt">Sunday:</span> 8.00 am – 6.00 pm
+              </p>
+            </div>
+            <div class="store">
+              <img
+                src="https://demo2.themelexus.com/bokifa/wp-content/uploads/2024/09/contact-image2.jpg"
+                alt="image2"
+              />
+              <h2>New York Showroom</h2>
+              <p>
+                <span class="light-txt"
+                  >2972 Westheimer Rd. Santa Ana, Illinois, USA</span
+                ><br />
+                <span>1-800-123-4567</span>
+              </p>
+              <p>
+                <span class="light-txt">Mon – Sat:</span> 7.00 am – 8.00 pm
+                <br /><span class="light-txt">Sunday:</span>8.00 am – 6.00 pm
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
