@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.container {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+/* map */
+.map {
+  width: 100%;
+  height: 600px;
+  margin-top: 40px;
+}
+
+.map iframe {
+  width: 100%;
+  height: 600px;
+}
+
+/* contact */
+.contact {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  gap: 2rem;
+}
+
+.contact-form,
+.store-location {
+  flex: 1;
+  min-width: 320px;
+}
+
+.contact h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  margin-bottom: 25px;
+}
+
+.contact-form p {
+  font-size: large;
+  color: #626262;
+  line-height: 1.5;
+  width: 78%;
+}
+
+.light-txt {
+  color: #626262;
+}
+
+/* send request */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#subject {
+  max-width: 90%;
+  min-width: 300px;
+  height: 100px;
+  border-radius: 30px;
+  border: none;
+  background-color: #eceaea;
+  padding: 15px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.user-info {
+  width: 95%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  flex: 1;
+  min-width: 200px;
+  justify-content: space-between;
+}
+
+.input-box input {
+  width: 90%;
+  min-width: 150px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  background-color: #eceaea;
+  padding: 0 15px;
+  font-family: inherit;
+}
+
+.submit-btn {
+  width: 180px;
+  height: 50px;
+  border-radius: 50px;
+  margin-top: 50px;
+  border: none;
+  background-color: #027a36;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #06213e;
+}
+
+/* store location */
+.location-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.store {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+.store img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.store h2 {
+  margin: 15px 0 10px 0;
+}
+
+.store p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
