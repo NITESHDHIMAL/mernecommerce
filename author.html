@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bokifa - Book Store</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #4a6fa5;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #3a5a8a;
+            transform: translateY(-2px);
+        }
+        
+        /* Header Styles */
+        .top-bar {
+            background-color: #f5f5f5;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .discount-banner {
+            background-color: #4a6fa5;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .main-header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #222;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .search-bar {
+            display: flex;
+            flex-grow: 1;
+            max-width: 500px;
+            min-width: 250px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+        }
+        
+        .search-bar button {
+            padding: 0 20px;
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-bar button:hover {
+            background-color: #3a5a8a;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .currency-selector, .help-number {
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        
+        .help-number {
+            color: #4a6fa5;
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .main-nav ul {
+            display: flex;
+            gap: 25px;
+            padding: 15px 0;
+        }
+        
+        .main-nav a {
+            padding: 5px 0;
+            display: inline-block;
+            font-weight: 500;
+            color: #555;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .main-nav a:hover {
+            color: #4a6fa5;
+        }
+        
+        .main-nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #4a6fa5;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .main-nav a:hover:after {
+            width: 100%;
+        }
+        
+        /* Breadcrumb with Background Image */
+        .breadcrumb-bg {
+            background-image: url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .breadcrumb-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .breadcrumb {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .breadcrumb-links {
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .breadcrumb-links a {
+            color: #fff;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb-links a:hover {
+            color: #4a6fa5;
+        }
+        
+        .breadcrumb-links span {
+            margin: 0 8px;
+            color: #ccc;
+        }
+        
+        .breadcrumb-title {
+            font-size: 36px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        /* Featured Authors Section */
+        .section-title {
+            font-size: 32px;
+            margin: 40px 0 30px;
+            text-align: center;
+            color: #222;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #4a6fa5;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .featured-authors {
+            padding: 30px 0 60px;
+        }
+        
+        .authors-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .author-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .author-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .author-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #4a6fa5;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        
+        .author-bio {
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        /* Alphabetical Filter */
+        .alphabet-filter {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .alphabet-filter a {
+            display: inline-block;
+            margin: 0 5px;
+            color: #666;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .alphabet-filter a:hover {
+            color: #4a6fa5;
+        }
+        
+        /* Authors Grid */
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .author-name-list {
+            color: #666;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s;
+            font-size: 16px;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .author-name-list:hover {
+            color: #4a6fa5;
+            background-color: #f9f9f9;
+            transform: translateX(5px);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: #4a6fa5;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        .footer-contact a {
+            color: #4a6fa5;
+        }
+        
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .search-bar {
+                width: 100%;
+                margin: 15px 0;
+            }
+            
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .authors-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="welcome-msg">Welcome to Bokifa Book Store</div>
+            <div class="account-links">
+                <a href="#">My Account</a> | <a href="#">Wishlist</a> | <a href="#">Checkout</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Discount Banner -->
+    <div class="discount-banner">
+        All books at least 50% off list prices every day
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">bokifa</div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products...">
+                    <button>Search</button>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="currency-selector">USD</div>
+                    <div class="help-number">Need help? Call Us: +84.2500 888 33</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb with Background Image -->
+    <div class="breadcrumb-bg">
+        <div class="container">
+            <div class="breadcrumb">
+                <div class="breadcrumb-links">
+                    <a href="#">Home</a>
+                    <span>></span>
+                    <a href="#">All Authors</a>
+                </div>
+                <h1 class="breadcrumb-title">All Authors</h1>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Featured Authors Section -->
+    <section class="featured-authors container">
+        <h2 class="section-title">Featured Authors</h2>
+        
+        <div class="authors-list">
+            <!-- Author 1 -->
+            <div class="author-card">
+                <div class="author-image">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Camelia Doe">
+                </div>
+                <h3 class="author-name">Camelia Doe</h3>
+                <p class="author-bio">
+                    Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. 
+                    Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. 
+                    Proin sed ultrices erat.
+                </p>
+                <a href="#" class="btn">View Details</a>
+            </div>
+            
+            <!-- Author 2 -->
+            <div class="author-card">
+                <div class="author-image">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Johan Sanford">
+                </div>
+                <h3 class="author-name">Johan Sanford</h3>
+                <p class="author-bio">
+                    Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. 
+                    Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. 
+                    Proin sed ultrices erat.
+                </p>
+                <a href="#" class="btn">View Details</a>
+            </div>
+            
+            <!-- Author 3 -->
+            <div class="author-card">
+                <div class="author-image">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Melany Rodriguez">
+                </div>
+                <h3 class="author-name">Melany Rodriguez</h3>
+                <p class="author-bio">
+                    Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. 
+                    Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. 
+                    Proin sed ultrices erat.
+                </p>
+                <a href="#" class="btn">View Details</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Alphabet Filter -->
+    <div class="alphabet-filter container">
+        <a href="#">ALL</a>
+        <a href="#">A</a>
+        <a href="#">B</a>
+        <a href="#">C</a>
+        <a href="#">D</a>
+        <a href="#">E</a>
+        <a href="#">F</a>
+        <a href="#">G</a>
+        <a href="#">H</a>
+        <a href="#">I</a>
+        <a href="#">J</a>
+        <a href="#">K</a>
+        <a href="#">L</a>
+        <a href="#">M</a>
+        <a href="#">N</a>
+        <a href="#">O</a>
+        <a href="#">P</a>
+        <a href="#">Q</a>
+        <a href="#">R</a>
+        <a href="#">S</a>
+        <a href="#">T</a>
+        <a href="#">U</a>
+        <a href="#">V</a>
+        <a href="#">W</a>
+        <a href="#">X</a>
+        <a href="#">Y</a>
+        <a href="#">Z</a>
+        <a href="#">0-9</a>
+    </div>
+    
+    <!-- Authors Grid -->
+    <div class="container">
+        <div class="authors-grid">
+            <a href="#" class="author-name-list">Camelia Doe</a>
+            <a href="#" class="author-name-list">Dana Chambers</a>
+            <a href="#" class="author-name-list">Enrique Wallace</a>
+            <a href="#" class="author-name-list">Ernesto Wade</a>
+            <a href="#" class="author-name-list">Gilberto Mills</a>
+            <a href="#" class="author-name-list">Jeannette Walls</a>
+            <a href="#" class="author-name-list">Jessica Munoz</a>
+            <a href="#" class="author-name-list">Johan Sanford</a>
+            <a href="#" class="author-name-list">Jon Krakauer</a>
+            <a href="#" class="author-name-list">Katherine Johnson</a>
+            <a href="#" class="author-name-list">Liam Neeson</a>
+            <a href="#" class="author-name-list">Maria Garcia</a>
+            <a href="#" class="author-name-list">Nathan Drake</a>
+            <a href="#" class="author-name-list">Olivia Wilde</a>
+            <a href="#" class="author-name-list">Peter Parker</a>
+            <a href="#" class="author-name-list">Quincy Adams</a>
+            <a href="#" class="author-name-list">Rachel Green</a>
+            <a href="#" class="author-name-list">Samuel Jackson</a>
+            <a href="#" class="author-name-list">Tina Fey</a>
+            <a href="#" class="author-name-list">Uma Thurman</a>
+            <a href="#" class="author-name-list">Victor Hugo</a>
+            <a href="#" class="author-name-list">Walter White</a>
+            <a href="#" class="author-name-list">Xavier Naidoo</a>
+            <a href="#" class="author-name-list">Yvonne Strahovski</a>
+            <a href="#" class="author-name-list">Zoe Saldana</a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Category</h3>
+                    <ul>
+                        <li><a href="#">Action Books</a></li>
+                        <li><a href="#">Comedy</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Horror</a></li>
+                        <li><a href="#">Kids Books</a></li>
+                        <li><a href="#">Top 50 Books</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Useful links</h3>
+                    <ul>
+                        <li><a href="#">Secure Shopping</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns Policy</a></li>
+                        <li><a href="#">Payment Option</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Store Locator</a></li>
+                        <li><a href="#">Kids Club</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column footer-contact">
+                    <h3>Get in touch</h3>
+                    <p>Bokifa draws book lovers of all ages into a community, engage with booklovers and meet their favourite literary personalities.</p>
+                    <p>+(84) - 1800 - 4635</p>
+                    <p><a href="mailto:contact@example.com">contact@example.com</a></p>
+                    <ul>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Become a Franchisee</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                Copyright © 2024 Bokifa. All rights reserved
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
